@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+
+{% block menu %}
+
+Aqui vai o menu
+
+{% endblock %}
+
+
+{% block content %}
+
+<header> 
+    <nav class="menu">
+        <a href="/">Portal SBO tahON</a>
+        <div class="mobile-menu2">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="cadastrar">Cadastrar</a></li>
+            <li><a href="consultar">Consultar</a></li>
+            <li><a href="sobre">Sobre nós</a></li>
+        </ul> 
+    </nav>
+
+
+<link rel="stylesheet" href="static/css/style_sobre.css">
+
+<script src="static/sobre.js"></script>
+
+</header>
+
+
+<main id="main" class="justify-content-center align-self-center mx-auto" style="background-color: white; height: auto;">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-12 d-flex">
+                <div id="content-main" class="justify-content-center align-self-center mx-auto my-5">
+                    <div class="card">
+                        <div class="card-header">
+                            Cadastrar Produtos
+                        </div>
+                            <div class="card-body">
+                                <form action="/consultar" method="POST" class="p-10">
+                                    <div class="md-form row">
+                                        <div class="col">
+                                            <input type="text" name="fornecedor" class="form-control" id="fornecedorInput" required autofocus>
+                                            <label for="fornecedorInput">Nome do fornecedor</label>
+                                        </div>
+                                    </div>
+                                    <div class="md-form row">
+                                        <div>
+                                            <input type="text" name="produto" class="form-control" id="produtoInput" required autofocus>
+                                            <label for="produtoInput">Nome do produto</label>
+                                        </div>
+                                        <div>
+                                            <input type="text" name="endereco" class="form-control" id="enderecoInput" required autofocus>
+                                            <label for="enderecoInput">Endereço</label>
+                                        </div>
+                                        <div>
+                                            <input type="text" name="whatsapp" class="form-control" id="whatsappInput" required autofocus>
+                                            <label for="whatsappInput">Número do Whatsapp</label>
+                                        </div>
+                                        <div>
+                                            <input type="text" name="email" class="form-control" id="emailInput" required autofocus>
+                                            <label for="emailInput">Endereço de email</label>
+                                        </div>
+
+                                        <!--
+
+                                        <div class="md-form">
+                                            <select name="category" class="mdb-select" id="categoryInput">
+                                                <option selected>Selecione Categoria</option>
+                                                {%for categorie in categories%}
+                                                <option value="{{categorie.0}}">{{categorie.1}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        -->
+
+                                        <div class="md-from">
+                                            <button class="btn btn-success btn-block">
+                                                Cadastrar <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<!--    MODAL PARA CADASTRAR CATEGORIAS
+
+<form action="/" method="POST">
+    <input type="number" name="code" placeholder="codigo do produto">
+    <input type="" name="name" placeholder="digite o nome">
+    <input type="number" name="stock" placeholder="disponibilidade">
+    <input type="number" name="value" placeholder="valor do produto">
+    
+
+    <select name="category">
+        <option selected>SELECIONE UMA CATEGORIA</option>
+        {% for categorie in categories %}
+            <option value="{{categorie.0}}">{{categorie.1}}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+{% for product in data %}
+
+    {{product.1}}
+
+        <form action="/delete/product/{{product.0}}" method="POST">
+            <button>DELETAR</button>
+        </form>
+        <a href="/update/product/{{product.0}}">atualizar</a>
+        {% else %}
+        NAO TEM PRODUTOS CADASTRADOS
+
+
+
+{% endfor %}    
+
+-->
+
+{% endblock %}

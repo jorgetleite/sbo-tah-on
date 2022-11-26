@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style_index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Projeto Integrador II</title>
+</head>
+
+<body>
+
+
+<header> 
+    <nav class="menu">
+        <a href="/">Portal SBO tahON</a>
+        <div class="mobile-menu2">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="cadastrar">Cadastrar</a></li>
+            <li><a href="consultar">Consultar</a></li>
+            <li><a href="sobre">Sobre nós</a></li>
+        </ul> 
+    </nav>
+
+
+<link rel="stylesheet" href="static/css/style_sobre.css">
+
+<script src="static/sobre.js"></script>
+
+</header>
+
+<main>
+
+<section>
+
+    <div class="api">
+
+        <span id="city"></span>
+        <span id="temperature"></span>
+
+    </div>
+    <script>
+        const CITY = document.getElementById('city');
+        const TEMPERATURE = document.getElementById('temperature');
+        const URL_MAIN = 'https://api.openweathermap.org/data/2.5/weather';
+        const API_KEY = 'a4c8cb25c612b49079a5c54d7a6d7c67'; // chave fornecida pela api
+        const UNITS = 'metric'; // unidade de medida metrica
+
+        navigator.geolocation.getCurrentPosition(loadUrl); // função criada
+
+        function loadUrl(pos){ // função que retonará latitude e longitude
+            let lat = pos.coords.latitude; // proprio browser
+            let long = pos.coords.longitude; // proprio browser
+            let url = `${URL_MAIN}?lat=${lat}&lon=${long}&units=${UNITS}&APPID=${API_KEY}`;
+            fetchApi(url);
+
+        }
+        async function fetchApi(url){
+            let response = await fetch(url); // fetch melhor nesse caso.
+            let {main, name} = await response.json();
+            let temperature = (main.temp).toFixed(1);
+            CITY.innerText = `${name}`;
+            TEMPERATURE.innerText = `${temperature}ºC`;
+
+        }
+    </script>  
+
+</section>
+
+<section class="cadastro-consulta">
+    <div class="cadastrar">
+        <a class="cadastrar" href="/consultar">Clique aqui para procurar por produtos perto da sua casa!</a>
+    </div>
+
+    <div class="consultar">
+        <a class="consultar" href="/cadastrar">Clique aqui agora para cadastrar seus produtos e divulgue seu negócio!</a>
+    </div>
+
+
+
+</section>
+
+
+    <section class="imagem">
+
+    <!-- INSERE A IMAGEM-->    
+
+    </section>
+
+
+    <section class="sessao-1">
+        <div class="container">
+            <div class="text-sessao-1">
+                <h2>Desenvolvendo Sistemas unicos</h2>
+                <p>Para melhor contatos</p>
+                <ul>
+                    <li>Contatos Telefonicos</li>
+                    <li>WhatsApp</li>
+                    <li>Email</li>
+                </ul>
+
+                <div class="clear"></div>
+
+                <div class="btn1-text">Entre em contato</div>
+            </div>
+            <!--text-sessao-1-->
+
+            <div class="device-sessao-1"></div>
+            <!--device-sessao-1-->
+            <div class="clear"></div>
+        </div>
+        <!--container-->
+    </section>
+    <!--sessa-1-->
+
+    <section class="sessao-2">
+        <div class="container">
+            <h2>Desenvovido por pessoas para pessoas</h2>
+            <p> Promover vendas locais  de formas mais acessivel ao disponibilizar os conatos e ramo de atuação com base
+                em preferências de compras do consumidor.
+                O objetivo do SBO tahON é estabelecer conexões ao pequeno negócio local.Disponibilizar informações para descobrir 
+                o contato desejado ao realizar uma pesquisa online.Determinar um contato simples e direto ao analizar as informações do vendedor.
+            </p>
+        </div>
+    </section>
+    <!--sessao-2-->
+
+
+    
+<section class="time-localizacao-main">
+    <div class="container">
+<div class="time-localizacao">
+    <div class="texto-time">
+        <div class="part-1">
+            <div class="wrapper-part-1">
+                <h2>Nosso time</h2>
+                <p> Com o uso de ferramentas tecnológicas para centralizar informações com a finalidade de aproximar o consumidor dos pequenos negócios e assim 
+                    considerando o percentual de estabelecimentos do setor alimentício no Brasil, que teve seus negócios fechados compulsoriamente devido à crise econômica causada pela pandemia de Covid-19.
+                    Os pequenos negócios local forão os mais afetados, devido a sua estrutura menor e a ausência do conhecimento ou recursos para digitalizar suas vendas, para atender o “novo normal”, encarar outras tendências e obedecer às novas normas sanitárias de distanciamento social.
+                    Desenvolvemos um portal com os contatos destes pequenos negócios, bem como seu ramo de atuação, sua geolocalização, seu horário de funcionamento e os meios de pagamentos aceitos e o meio de contato.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="localizacao">
+        <h2>Localização Univesp Polo de Santa Barbara D' Oeste</h2>
+        <div class="map-wrapper-3">
+            <div class="map-wrapper-2">
+                <div id="map" class="map">
+                    
+                    
+                                    <div class="mapouter">
+                                        <div class="mapouter"><div class="gmap_canvas"><iframe width="800" height="690" id="gmap_canvas" src="https://maps.google.com/maps?q=R.%20Gen.%20Couto%20Magalh%C3%A3es,%20215%20-%20Conj.%20Hab.%2031%20de%20Marco%20(Cohab),%20Santa%20B%C3%A1rbara%20d'Oeste%20-%20SP,%2013453-135&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:690px;width:800px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:690px;width:800px;}</style></div></div>
+                                            <style>
+                                                .mapouter {
+                                                    position: relative;
+                                                    text-align: right;
+                                                    height: 100%;
+                                                    width: 100%;
+                                                }
+                                            </style>
+                                            <style>
+                                                .gmap_canvas {
+                                                    overflow: hidden;
+                                                    height: 100%;
+                                                    width: 100%;
+                                                }
+                                            </style>
+                                        </div>
+                                    </div>
+                </div>
+                <!--map-->
+            </div>
+            <!--wrapper-2-->
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+    <!--sessao-4-->
+    <footer>
+        <div class="container">
+            <p>Projeto Integrador</p>
+            <P>Univesp</P>
+        </div>
+        <!--container-->
+        <div class="clear"></div>
+    </footer><!--footer-->
+    <script>
+
+        var email = document.getElementById('email');
+        var passaword = document.getElementById('passaword');
+        
+        email.addEventListener('focus',()=>{
+            email.style.borderColor = "#4a5f6a";
+        });
+        email.addEventListener('blur',()=>{
+            email.style.borderColor = "#ccc";
+        });
+        
+        passaword.addEventListener('focus',()=>{
+            passaword.style.borderColor = "#4a5f6a";
+        });
+        passaword.addEventListener('blur',()=>{
+            passaword.style.borderColor = "#ccc";
+        });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

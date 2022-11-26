@@ -1,0 +1,46 @@
+<!--MENSGEM DE SUCESSO-->
+
+{% with success = get_flashed_messages(category_filter=["success"]) %}
+    {% if success %}
+    
+        <!-- DIV PEGA NO ALERTS DO BOOTSTRAP -->
+
+        <!--A PALAVRA SUCCESS ABAIXO SUBSTITUIU A QUE VEM: WARNING-->
+        
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {% for message in success %}
+            <strong>Resposta!</strong> 
+            <i class="fas fa-solid fa-check-double">{{message}}</i>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    {% endif %}
+
+
+{% endwith %}
+
+<!--MENSGEM DE ERRO-->
+
+{% with error = get_flashed_messages(category_filter=["error"]) %}
+    {% if error %}
+    
+
+        
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {% for message in error %}
+            <strong>Resposta!</strong> 
+            <i class="fas fa-solid fa-triangle-exclamation">{{message}}</i>
+            {% endfor %}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    {% endif %}
+
+
+{% endwith %}
+
