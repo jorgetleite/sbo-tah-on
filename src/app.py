@@ -6,8 +6,11 @@ app.config.from_mapping(
     SECRET_KEY = 'development'
 )
 
-port = int(os.environ.get("PORT", 5000))   #verificar se era isso que impedia de rodar
-app.run(host='0.0.0.0', port=port)
+if __name__ == "--main__":
+    port = int(os.environ.get("PORT", 5000))   #verificar se era isso que impedia de rodar
+    app.run(host='0.0.0.0', port=port)
+
+
 
 app.add_url_rule(routes["cadastrar_route"], view_func=routes["cadastrarcontroller"])
 
